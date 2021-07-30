@@ -2,29 +2,26 @@ import { bearerAuthHeader } from 'src/services';
 import { HttpRequest } from 'src/services/types/HttpRequest';
 import HttpMethodEnum from 'src/enums/HttpMethodEnum';
 import { Token } from 'src/services/types/Token';
-// import { adaptUrlByPage } from 'src/store/adapters/pagination.adapters';
 
-export const getVegetableDetailsQuery = (
+export const getCharacterDetailsQuery = (
   token: Token,
-  vegetableId: number | string,
+  characterId: number | string,
   // page: number
 ): HttpRequest => {
   return {
     method: HttpMethodEnum.GET,
-    // url: adaptUrlByPage(`/alarm/${vegetableId}/`, page),
-    url: `/vegetable/${vegetableId}/`,
+    url: `/people/${characterId}/`,
     headers: bearerAuthHeader(token.access),
   };
 };
 
-export const getVegetablesQuery = (
+export const getCharactersQuery = (
   token: Token
   // page: number
 ): HttpRequest => {
   return {
     method: HttpMethodEnum.GET,
-    // url: adaptUrlByPage('/vegetable/', page),
-    url: '/vegetable/',
+    url: '/people/',
     headers: bearerAuthHeader(token.access),
   };
 };
